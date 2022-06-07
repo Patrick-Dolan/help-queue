@@ -6,8 +6,9 @@ import reportWebVitals from './reportWebVitals';
 import { createStore } from 'redux';
 import reducer from "./reducers/ticket-list-reducer";
 import { Provider } from 'react-redux';
+import { composeWithDevTools} from "redux-devtools-extension";
 
-const store = createStore(reducer);
+const store = createStore(reducer, composeWithDevTools());
 
 store.subscribe(() =>
   console.log(store.getState())
