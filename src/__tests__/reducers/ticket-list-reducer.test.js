@@ -1,5 +1,4 @@
 import ticketListReducer from "../../reducers/ticket-list-reducer";
-import * as constants from "./../../actions/ActionTypes";
 import * as actions from "./../../actions";
 
 describe("ticketListReducer", () => {
@@ -49,10 +48,7 @@ describe("ticketListReducer", () => {
   });
 
   test("Should successfully delete a ticket", () => {
-    action = {
-      type: "DELETE_TICKET",
-      id: 1
-    };
+    action = actions.deleteTicket(1);
     expect(ticketListReducer(currentState, action)).toEqual({
       2: {names: 'Jasmine and Justine',
         location: '2a',
