@@ -1,4 +1,6 @@
 import ticketListReducer from "../../reducers/ticket-list-reducer";
+import * as constants from "./../../actions/ActionTypes";
+import * as actions from "./../../actions";
 
 describe("ticketListReducer", () => {
   
@@ -27,13 +29,14 @@ describe("ticketListReducer", () => {
 
   test("Should successfully add new ticket data to mainTicketList", () => {
     const { names, location, issue, id } = ticketData;
-    action = {
-      type: "ADD_TICKET",
+    const ticket = {
       names: names,
       location: location,
       issue: issue,
       id: id
     };
+
+    const action = actions.addTicket(ticket);
 
     expect(ticketListReducer({}, action)).toEqual({
       [id] : {
