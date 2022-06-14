@@ -1,21 +1,29 @@
-import * as actions from "../actions/ActionTypes";
+import * as constants from "../../src/actions/ActionTypes"
 
 export const deleteTicket = id => ({
-  type: actions.DELETE_TICKET,
+  type: constants.DELETE_TICKET,
   id
 });
 
 export const toggleForm = () => ({
-  type: actions.TOGGLE_FORM
+  type: constants.TOGGLE_FORM
 });
 
-export const addTicket = ticket => {
-  const { names, location, issue, id } = ticket;
+export const addTicket = (ticket) => {
+  const { names, location, issue, id, formattedWaitTime, timeOpen } = ticket;
   return {
-    type: actions.ADD_TICKET,
+    type: constants.ADD_TICKET,
     names: names,
     location: location,
     issue: issue,
-    id: id
+    id: id,
+    formattedWaitTime,
+    timeOpen: timeOpen
   }
 }
+
+export const updateTime = (id, formattedWaitTime) => ({
+  type: constants.UPDATE_TIME,
+  id: id,
+  formattedWaitTime: formattedWaitTime
+});
