@@ -67,9 +67,6 @@ class TicketControl extends React.Component {
       }
       this.setState({selectedTicket: firestoreTicket});
     });
-
-    const selectedTicket = this.props.mainTicketList[id];
-    this.setState({selectedTicket: selectedTicket});
   }
 
   handleEditClick = () => {
@@ -77,9 +74,6 @@ class TicketControl extends React.Component {
   }
 
   handleEditingTicketInList = ticketToEdit => {
-    const { dispatch } = this.props;
-    const action = actions.addTicket(ticketToEdit);
-    dispatch(action);
     this.setState({
       editing: false,
       selectedTicket: null
